@@ -1,21 +1,25 @@
-name: Deploy to Staging
+# LANC Template File - Copy to your repository's .github/workflows/ directory
+# Validation errors are expected as this contains placeholder values
+# These resolve when secrets are configured in the target repository
+
+name: Deploy to Development
 
 on:
   push:
-    branches: [staging]
+    branches: [development]
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: service-name-staging
+  AZURE_WEBAPP_NAME: service-name-development
   AZURE_WEBAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '20.x'
 
 jobs:
   build-and-deploy:
-    name: Build and Deploy to Staging
+    name: Build and Deploy to Development
     runs-on: ubuntu-latest
     environment:
-      name: staging
+      name: development
 
     steps:
       - name: Checkout repository
@@ -36,12 +40,9 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Run integration tests
-        run: npm run test:integration 2>/dev/null || echo "No integration tests found"
-
       - name: Build application
         run: |
-          echo "Build completed for staging environment"
+          echo "Build completed for development environment"
 
       - name: Login to Azure
         uses: azure/login@v1
@@ -52,17 +53,11 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME_STAGING }}
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME_DEV }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
       - name: Test deployment
         run: |
           sleep 30
-          curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/health || echo "Health check failed but deployment may still be successful"
-          echo "Staging deployment completed: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
-
-      - name: Run smoke tests
-        run: |
-          echo "Running smoke tests against staging environment"
-          curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/health/readiness
-          curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/health/liveness
+          curl -f https://${{ secrets.AZURE_WEBAPP_NAME_DEV }}.azurewebsites.net/health || echo "Health check failed but deployment may still be successful"
+          echo "Development deployment completed: https://${{ secrets.AZURE_WEBAPP_NAME_DEV }}.azurewebsites.net"

@@ -62,9 +62,9 @@ REQUIRED ENDPOINTS:
 - GET /api/status (service-specific status endpoint)
 
 GITHUB ACTIONS WORKFLOWS (.github/workflows/):
-- deploy-development.yml (auto-deploy development branch to Azure)
-- deploy-staging.yml (auto-deploy staging branch to Azure)
-- deploy-production.yml (auto-deploy main branch to Azure)
+- deploy-development.template.yml (rename to .yml and auto-deploy development branch to Azure)
+- deploy-staging.template.yml (rename to .yml and auto-deploy staging branch to Azure)  
+- deploy-production.template.yml (rename to .yml and auto-deploy main branch to Azure)
 - Each workflow must include: checkout, Node.js setup, dependency install, build, Azure deploy
 
 AZURE CONFIGURATION:
