@@ -221,8 +221,18 @@ app.use((err, req, res, next) => {
 }
 ```
 
+### Dependency Management Standards
+
+**Version Management Policy:**
+- **Always use latest stable versions** of all dependencies
+- **Pin major versions** using caret (^) notation for automatic minor/patch updates
+- **Regular updates**: Update dependencies monthly or when security vulnerabilities are discovered
+- **LTS versions**: Prefer LTS (Long Term Support) versions for runtime environments (Node.js, etc.)
+- **Security first**: Prioritize security updates over feature stability
+
 ### Standard Dependencies
 
+**Core Production Dependencies** (always use latest versions):
 ```json
 {
   "dependencies": {

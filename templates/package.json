@@ -1,7 +1,7 @@
 {
   "name": "lanc-service-template",
   "version": "1.0.0",
-  "description": "LANC microservice following organizational standards",
+  "description": "LANC microservice following organizational standards - USE LATEST STABLE VERSIONS",
   "main": "src/server.js",
   "type": "module",
   "scripts": {

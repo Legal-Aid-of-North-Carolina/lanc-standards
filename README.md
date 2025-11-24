@@ -42,16 +42,16 @@ REPOSITORY SETUP:
 - Initialize with main branch and set up three-tier environment (development/staging/main branches)
 
 REQUIRED FILE STRUCTURE:
-- package.json (Node.js 18+, express, dotenv, helmet, cors, winston dependencies)
+- package.json (Node.js 20+ LTS, express, dotenv, helmet, cors, winston dependencies - USE LATEST STABLE VERSIONS)
 - server.js (main application file with health endpoints)
-- Dockerfile (multi-stage build, Node 18 alpine, non-root user, health check)
+- Dockerfile (multi-stage build, Node 20 alpine, non-root user, health check)
 - .env.example (environment template)
 - .gitignore (Node.js standard with Azure and IDE exclusions)
 - README.md (with LANC standards compliance section)
 - web.config (Azure App Service configuration)
 - startup.sh (Azure startup script)
-- eslint.config.js (ES2022, strict linting rules)
-- jest.config.mjs (testing configuration)
+- eslint.config.js (ES2022, strict linting rules - LATEST VERSION)
+- jest.config.mjs (testing configuration - LATEST VERSION)
 
 REQUIRED ENDPOINTS:
 - GET /health (comprehensive health check with status, timestamp, version, environment)
@@ -70,7 +70,7 @@ AZURE CONFIGURATION:
 - Run: ./setup-azure-resources.sh [YOUR-REPO-NAME] to create all Azure resources
 - Three App Service instances: [repo-name]-development, [repo-name]-staging, [repo-name]
 - Resource group: rg-lanc-[repo-name] in East US region
-- App Service Plan with Linux Node.js 18 runtime
+- App Service Plan with Linux Node.js 20-lts runtime (LATEST LTS VERSION)
 - Environment variables: NODE_ENV, PORT, WEBSITE_NODE_DEFAULT_VERSION
 - Health check endpoints configured for all environments
 - GitHub deployment service principal created automatically
