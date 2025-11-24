@@ -572,6 +572,7 @@ All commit messages must follow these rules:
 - Use present tense ("Add feature" not "Added feature")
 - Be descriptive but concise
 - Start with a verb (Add, Fix, Update, Remove, etc.)
+- **Always use `git add .` before committing** to stage all changes
 
 #### Examples of Good Commit Messages
 - Add health endpoints to server
