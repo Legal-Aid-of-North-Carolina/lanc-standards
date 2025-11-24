@@ -39,16 +39,20 @@ jobs:
       run: |
         echo "Build completed for development environment"
 
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Deploy to Azure Web App
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEVELOPMENT }}
+        app-name: ${{ secrets.AZURE_WEBAPP_NAME_DEV }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     - name: Test deployment
       run: |
         sleep 30
-        curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/health || echo "Health check failed but deployment may still be successful"
-        echo "Development deployment completed: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
+        curl -f https://${{ secrets.AZURE_WEBAPP_NAME_DEV }}.azurewebsites.net/health || echo "Health check failed but deployment may still be successful"
+        echo "Development deployment completed: https://${{ secrets.AZURE_WEBAPP_NAME_DEV }}.azurewebsites.net"
