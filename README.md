@@ -2,6 +2,8 @@
 
 **Comprehensive development standards and templates for Legal Aid of North Carolina repositories**
 
+> ⚠️ **Note**: This is a documentation repository. GitHub deployment failures are expected and can be ignored as this repository contains templates rather than deployable applications.
+
 ## 🎯 Quick Links
 
 - **[📋 Repository Standards](./REPOSITORY_STANDARDS.md)** - Complete development standards and best practices
@@ -63,7 +65,7 @@ REQUIRED ENDPOINTS:
 
 GITHUB ACTIONS WORKFLOWS (.github/workflows/):
 - deploy-development.template.yml (rename to .yml and auto-deploy development branch to Azure)
-- deploy-staging.template.yml (rename to .yml and auto-deploy staging branch to Azure)  
+- deploy-staging.template.yml (rename to .yml and auto-deploy staging branch to Azure)
 - deploy-production.template.yml (rename to .yml and auto-deploy main branch to Azure)
 - Each workflow must include: checkout, Node.js setup, dependency install, build, Azure deploy
 
