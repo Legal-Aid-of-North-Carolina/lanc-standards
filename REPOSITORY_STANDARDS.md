@@ -8,6 +8,28 @@ This document defines the comprehensive standards and best practices for all Leg
 
 ---
 
+## 🛠️ Development Environment Assumptions
+
+### Available CLI Tools
+The development environment includes these CLI tools that GitHub Copilot should utilize:
+
+- **GitHub CLI (`gh`)** - Always available for repository management, PR creation, issue handling
+- **Azure CLI (`az`)** - Always available for Azure resource management and deployment
+- **Git** - Standard version control operations
+- **Node.js/npm** - For JavaScript/Node.js projects
+- **Docker** - For containerization and local development
+
+### GitHub Copilot Expectations
+When working on LANC repositories, GitHub Copilot should:
+
+- **Automate CLI operations** - Use `gh` and `az` commands directly rather than suggesting manual web interface steps
+- **Create repositories** - Use `gh repo create` for new repository creation
+- **Manage Azure resources** - Use `az` commands for deployment, configuration, and resource management
+- **Handle Git operations** - Perform all Git operations including remote setup, branching, and pushing
+- **Follow these standards** - Reference this document for all architectural and implementation decisions
+
+---
+
 ## 🌐 Environment & Branch Strategy
 
 ### Standard Three-Tier Architecture
