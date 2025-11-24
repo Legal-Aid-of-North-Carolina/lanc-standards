@@ -31,6 +31,18 @@ When working on LANC repositories, GitHub Copilot should:
 - **Correct branch usage** - Ensure work is performed on the appropriate branch (development/staging/main)
 - **Branch verification** - Switch to correct branch using `git checkout <branch>` before making changes
 
+### Repository Creation Process
+
+**LANC uses AI-assisted repository creation for consistency and efficiency:**
+
+- **GitHub Copilot** with Claude Sonnet 4 (or superior future models) performs all repository creation
+- **No manual setup** - Copilot handles all initial configuration, file creation, and setup tasks
+- **Full compliance** - Copilot ensures new repositories fully comply with all LANC standards
+- **Consistent results** - Same AI model produces consistent repository structures across the organization
+- **Standards reference** - Copilot uses this `lanc-standards` repository as the authoritative source
+
+**Process**: Request new repository from GitHub Copilot, referencing this standards documentation. Copilot will create a fully compliant repository with all necessary files, configurations, and Azure deployments.
+
 ---
 
 ## 🌐 Environment & Branch Strategy
@@ -492,10 +504,17 @@ module.exports = { logger };
 
 ### README.md Template
 
+**All repository README files must include a reference to LANC standards:**
+
 ````markdown
 # Service Name
 
 Brief description of the service purpose and functionality.
+
+## Standards Compliance
+
+This repository follows [LANC Repository Standards](https://github.com/Legal-Aid-of-North-Carolina/lanc-standards). 
+For development guidelines, templates, and best practices, see the [LANC Standards Documentation](https://github.com/Legal-Aid-of-North-Carolina/lanc-standards/blob/main/REPOSITORY_STANDARDS.md).
 
 ## Live Deployments
 
