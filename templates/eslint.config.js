@@ -26,11 +26,11 @@ export default [
     rules: {
       'no-unused-vars': 'warn',
       'no-undef': 'error',
-      'semi': ['error', 'always'],
-      'quotes': ['error', 'single', { avoidEscape: true }],
-      'eqeqeq': 'error',
+      semi: ['error', 'always'],
+      quotes: ['error', 'single', { avoidEscape: true }],
+      eqeqeq: 'error',
       'no-console': 'off', // Allow console logs for server applications
-      'curly': ['error', 'multi-line', 'consistent'],
+      curly: ['error', 'multi-line', 'consistent'],
       'no-trailing-spaces': 'error',
       'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
       'prefer-const': 'error',

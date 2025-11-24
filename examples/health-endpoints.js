@@ -11,13 +11,13 @@ app.get('/health', async (req, res) => {
     };
 
     // Determine overall status based on checks
-    const hasErrors = Object.values(checks).some(status => 
-      status === 'error' || status === 'failed'
+    const hasErrors = Object.values(checks).some(
+      (status) => status === 'error' || status === 'failed'
     );
-    const hasWarnings = Object.values(checks).some(status => 
-      status === 'degraded' || status === 'warning'
+    const hasWarnings = Object.values(checks).some(
+      (status) => status === 'degraded' || status === 'warning'
     );
-    
+
     const status = hasErrors ? 'error' : hasWarnings ? 'degraded' : 'healthy';
 
     res.status(status === 'error' ? 503 : 200).json({
@@ -49,8 +49,8 @@ app.get('/health/readiness', async (req, res) => {
       dependencies: await checkDependencies(), // Implement actual check
     };
 
-    const isReady = Object.values(checks).every(status => 
-      status === 'ready' || status === 'not_configured'
+    const isReady = Object.values(checks).every(
+      (status) => status === 'ready' || status === 'not_configured'
     );
 
     // Always return 200 for readiness probes

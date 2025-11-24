@@ -18,10 +18,12 @@ const startTime = Date.now();
 app.use(helmet());
 
 // CORS configuration
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || '*',
+    credentials: true,
+  })
+);
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
@@ -40,7 +42,7 @@ app.get('/', (req, res) => {
     message: `${SERVICE_NAME} is running`,
     version: process.env.npm_package_version || '1.0.0',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
   });
 });
 
@@ -50,7 +52,7 @@ app.get('/', (req, res) => {
 // API routes
 // app.use('/api', apiRoutes);
 
-// Webhook routes  
+// Webhook routes
 // app.use('/webhook', webhookRoutes);
 
 // Error handling (copy from error-handlers.js example)

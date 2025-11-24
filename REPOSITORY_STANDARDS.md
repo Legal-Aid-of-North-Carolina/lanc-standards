@@ -11,6 +11,7 @@ This document defines the comprehensive standards and best practices for all Leg
 ## 🛠️ Development Environment Assumptions
 
 ### Available CLI Tools
+
 The development environment includes these CLI tools that GitHub Copilot should utilize:
 
 - **GitHub CLI (`gh`)** - Always available for repository management, PR creation, issue handling
@@ -20,6 +21,7 @@ The development environment includes these CLI tools that GitHub Copilot should 
 - **Docker** - For containerization and local development
 
 ### GitHub Copilot Expectations
+
 When working on LANC repositories, GitHub Copilot should:
 
 - **Automate CLI operations** - Use `gh` and `az` commands directly rather than suggesting manual web interface steps
@@ -224,6 +226,7 @@ app.use((err, req, res, next) => {
 ### Dependency Management Standards
 
 **Version Management Policy:**
+
 - **Always use latest stable versions** of all dependencies
 - **Pin major versions** using caret (^) notation for automatic minor/patch updates
 - **Regular updates**: Update dependencies monthly or when security vulnerabilities are discovered
@@ -233,6 +236,7 @@ app.use((err, req, res, next) => {
 ### Standard Dependencies
 
 **Core Production Dependencies** (always use latest versions):
+
 ```json
 {
   "dependencies": {
@@ -523,7 +527,7 @@ Brief description of the service purpose and functionality.
 
 ## Standards Compliance
 
-This repository follows [LANC Repository Standards](https://github.com/Legal-Aid-of-North-Carolina/lanc-standards). 
+This repository follows [LANC Repository Standards](https://github.com/Legal-Aid-of-North-Carolina/lanc-standards).
 For development guidelines, templates, and best practices, see the [LANC Standards Documentation](https://github.com/Legal-Aid-of-North-Carolina/lanc-standards/blob/main/REPOSITORY_STANDARDS.md).
 
 ## Live Deployments
@@ -630,7 +634,7 @@ All commit messages must follow these rules:
 
 #### Examples of Good Commit Messages
 - Add health endpoints to server
-- Fix error handler response format  
+- Fix error handler response format
 - Update package.json dependencies
 - Remove deprecated middleware
 - Add Jest test configuration
@@ -644,7 +648,7 @@ All commit messages must follow these rules:
 ### Why This Matters
 Consistent, concise commit messages improve:
 - Code review efficiency
-- Git history readability  
+- Git history readability
 - Automated changelog generation
 - Team communication
 - GitHub Copilot consistency
