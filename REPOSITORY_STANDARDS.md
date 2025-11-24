@@ -27,6 +27,9 @@ When working on LANC repositories, GitHub Copilot should:
 - **Manage Azure resources** - Use `az` commands for deployment, configuration, and resource management
 - **Handle Git operations** - Perform all Git operations including remote setup, branching, and pushing
 - **Follow these standards** - Reference this document for all architectural and implementation decisions
+- **Branch awareness** - Always check current branch with `git branch` before starting work
+- **Correct branch usage** - Ensure work is performed on the appropriate branch (development/staging/main)
+- **Branch verification** - Switch to correct branch using `git checkout <branch>` before making changes
 
 ---
 
